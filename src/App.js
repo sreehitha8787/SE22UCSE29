@@ -1,27 +1,27 @@
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider, createTheme } from '@mui/material';
 import Header from './components/Header';
+import StockPage from './components/StockPage';
+import HeatmapPage from './components/HeatmapPage';
+import './App.css';
+
+const theme = createTheme();
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <main>
-        <section id="home">
-          <h2>Welcome to My Website</h2>
-          <p>This is a simple website built with React.</p>
-        </section>
-        
-        <section id="about">
-          <h2>About Us</h2>
-          <p>Learn more about our company and services.</p>
-        </section>
-
-        <section id="contact">
-          <h2>Contact Us</h2>
-          <p>Get in touch with us for more information.</p>
-        </section>
-      </main>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <div className="App">
+          <Header />
+          <main>
+            <Routes>
+              <Route path="/" element={<StockPage />} />
+              <Route path="/heatmap" element={<HeatmapPage />} />
+            </Routes>
+          </main>
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 

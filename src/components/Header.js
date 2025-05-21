@@ -1,15 +1,17 @@
+import { Link } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+
 function Header() {
     return (
-        <header className="main-header">
-            <nav>
-                <h1>My Website</h1>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+        <AppBar position="static">
+            <Toolbar>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                    Stock Analytics
+                </Typography>
+                <Button color="inherit" component={Link} to="/">Stocks</Button>
+                <Button color="inherit" component={Link} to="/heatmap">Heatmap</Button>
+            </Toolbar>
+        </AppBar>
     );
 }
 
